@@ -1,1 +1,6 @@
-<p>brand works!</p>
+<h1>Marcas Cadastradas</h1>
+
+<ul *ngIf="brands.length > 0; else noBrands">
+  <li *ngFor="let brand of brands">{{ brand.name }}</li>
+</ul>
+<ng-template #noBrands>Não foi encontrado registros</ng-template>
