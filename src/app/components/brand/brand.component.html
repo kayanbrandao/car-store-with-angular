@@ -1,4 +1,13 @@
 <h1>Marcas Cadastradas</h1>
+<form [formGroup]="brandForm" (ngSubmit)="create()">
+  <input
+    type="text"
+    formControlName="name"
+    placeholder="Nome da Marca"
+    required
+  />
+  <input type="submit" value="Cadastrar Marca" />
+</form>
 
 <ul *ngIf="brands.length > 0; else noBrands">
   <li *ngFor="let brand of brands">{{ brand.name }}</li>
