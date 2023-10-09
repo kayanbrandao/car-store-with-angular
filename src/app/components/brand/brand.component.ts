@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Brand } from 'src/app/data/entities/Brand';
 import { BrandService } from 'src/app/services/brand/brand.service';
 
@@ -25,15 +19,15 @@ export class BrandComponent implements OnInit {
     this.createForm();
   }
 
-  findAll(): void {
-    this.brandService.findAll().subscribe((data) => {
-      this.brands = data;
-    });
-  }
-
   createForm() {
     this.brandForm = this.fb.group({
       name: ['', Validators.required],
+    });
+  }
+
+  findAll(): void {
+    this.brandService.findAll().subscribe((data) => {
+      this.brands = data;
     });
   }
 
@@ -45,5 +39,11 @@ export class BrandComponent implements OnInit {
     await this.brandService.create(data).subscribe(() => this.findAll());
 
     this.brandForm.reset();
+  }
+
+  async delete(id: number) {
+    if (id) {
+      await this.brandService.delete(id).subscribe(() => this.findAll());
+    }
   }
 }

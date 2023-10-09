@@ -10,6 +10,9 @@
 </form>
 
 <ul *ngIf="brands.length > 0; else noBrands">
-  <li *ngFor="let brand of brands">{{ brand.name }}</li>
+  <li *ngFor="let brand of brands">
+    {{ brand.name }}
+    <button (click)="delete(brand.id!)">Excluir</button>
+  </li>
 </ul>
 <ng-template #noBrands>Não foi encontrado registros</ng-template>

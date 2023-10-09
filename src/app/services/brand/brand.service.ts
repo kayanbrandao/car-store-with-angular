@@ -21,4 +21,9 @@ export class BrandService {
   create(data: Brand): Observable<Brand> {
     return this.http.post<Brand>(this.url, data);
   }
+
+  delete(id: number) {
+    const url = `${this.url}/${id}`;
+    return this.http.delete(url);
+  }
 }
