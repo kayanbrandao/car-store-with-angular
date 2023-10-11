@@ -1,4 +1,11 @@
 <h1>Marcas Cadastradas</h1>
+<form>
+  <input
+    type="text"
+    placeholder="Busque por uma marca"
+    (input)="findByName($event)"
+  />
+</form>
 <form [formGroup]="brandForm" (ngSubmit)="create()">
   <input
     type="text"

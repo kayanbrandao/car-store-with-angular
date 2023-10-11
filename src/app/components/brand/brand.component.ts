@@ -10,6 +10,7 @@ import { BrandService } from 'src/app/services/brand/brand.service';
 })
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
+  allBrands: Brand[] = [];
   brandForm!: FormGroup;
 
   constructor(private brandService: BrandService, private fb: FormBuilder) {}
@@ -28,7 +29,17 @@ export class BrandComponent implements OnInit {
   findAll(): void {
     this.brandService.findAll().subscribe((data) => {
       this.brands = data;
+      this.allBrands = data;
     });
+  }
+
+  findByName(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value.toLowerCase();
+
+    this.brands = this.allBrands.filter((brand) =>
+      brand.name.toLowerCase().includes(value)
+    );
   }
 
   async create() {
