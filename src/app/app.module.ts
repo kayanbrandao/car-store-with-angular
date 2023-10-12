@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, BrandComponent],
+  declarations: [AppComponent, BrandComponent, HomeComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
