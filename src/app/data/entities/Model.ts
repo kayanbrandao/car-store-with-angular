@@ -1,5 +1,7 @@
+import { Brand } from './Brand';
+
 export interface Model {
   id?: number;
   name: string;
-  idBrand: number;
+  brand: Brand;
 }

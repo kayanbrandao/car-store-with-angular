@@ -1,1 +1,9 @@
-<p>model works!</p>
+<h1>Modelos Cadastrados</h1>
+
+<ul *ngIf="models.length > 0; else noModels">
+  <li *ngFor="let model of models">
+    {{ model.name }} | {{ model.brand.name }}
+  </li>
+</ul>
+
+<ng-template #noModels>Não foram encontrados registros</ng-template>
