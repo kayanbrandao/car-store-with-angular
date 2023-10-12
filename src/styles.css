@@ -10,3 +10,8 @@
   font-family: sans-serif;
   outline: none;
 }
+
+.container {
+  max-width: 1366px;
+  margin: auto;
+}
